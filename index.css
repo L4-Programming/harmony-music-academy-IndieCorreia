@@ -88,19 +88,16 @@ button {
   transition: all 0.3s ease;
 }
 
-.hide-logo {
-  width: calc(50% - 1px);
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2rem;
-  padding: 2rem 4rem;
+.mobile-show-logo {
+  display: none;
 }
 
 @media screen and (max-width: 640px) {
-  .hide-logo {
+  .mobile-hide-logo {
     display: none;
+  }
+
+  .mobile-show-logo {
+    display: block;
   }
 }

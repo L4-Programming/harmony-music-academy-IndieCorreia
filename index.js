@@ -1,4 +1,4 @@
-alert("What the qharopy?");
+console.log("What the qharopy?");
 
 // Display a form to the user
 // Include input fields for the user's email address, level, and hours of study
