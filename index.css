@@ -87,3 +87,20 @@ button {
   box-shadow: var(--box-shadow-lg);
   transition: all 0.3s ease;
 }
+
+.hide-logo {
+  width: calc(50% - 1px);
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem 4rem;
+}
+
+@media screen and (max-width: 640px) {
+  .hide-logo {
+    display: none;
+  }
+}
