@@ -1,4 +1,4 @@
-console.log("Hai!");
+console.log("Hai! Welcome to the console, happy debugging! :3");
 
 // Capture user's input on form submission
 let form = document.querySelector("form");
@@ -6,8 +6,20 @@ let form = document.querySelector("form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  console.log("Form submitted");
+  // Store the user's email address as userEmail (string/text)
+  let userEmail = document.querySelector("#email").value;
+  console.log({ userEmail });
+
+  // Get the user's level - userLevel (string)
+  let userLevel = document.querySelector("#level").value;
+  console.log({ userLevel });
+
+  // Get the user's hours of study - userHours (number)
+  let userHours = document.querySelector("#hoursPerWeek").value;
+  console.log({ userHours });
 });
+
+// Capture users input on form submission
 // Get the user's email address - userEmail (string)
 // Get the user's level - userLevel (string)
 // Get the user's hours of study - userHours (number)
