@@ -21,43 +21,57 @@ form.addEventListener("submit", function (event) {
   let userHours = parseInt(document.querySelector("#hoursPerWeek").value);
 
   // Validate the user's input
+  let errors = {};
+
+  // Helper function to add error messages
+  function addError(field, message) {
+    if (!errors[field]) {
+      errors[field] = { messages: [] };
+    }
+    errors[field].messages.push(message);
+  }
+
   // Check if the user has provided an email address
   if (userEmail === "") {
-    alert("Please enter your email address.");
-
-    return;
+    addError("email", "Please enter your email address.");
   }
 
   // Check if the user has selected a level - check against allowed level
   if (userLevel === "") {
-    alert("Please select a level of study.");
-
-    return;
+    addError("level", "Please select a level of study.");
   }
 
   // Check if the user has specified at least one hour of study
   if (isNaN(userHours) || userHours < 1) {
-    alert("Please enter at least 1 hour of study.");
-
-    return;
+    addError("hoursPerWeek", "Please enter at least 1 hour of study.");
   }
 
   //Is userlevel valid?
   if (!maxHoursPerLevel.hasOwnProperty(userLevel)) {
-    alert("Invalid level of study selected");
-
-    return;
+    addError("level", "Invalid level of study selected");
   }
 
   //Is userHours within range?
   const maxAllowedHours = maxHoursPerLevel[userLevel];
   if (userHours > maxAllowedHours) {
-    alert(`You can only study a maximum of ${maxAllowedHours} hours per week.`);
-
-    return;
+    addError(
+      "hoursPerWeek",
+      `Users who are ${userLevel} can only study a maximum of ${maxAllowedHours} hours per week.`
+    );
   }
 
-  console.log({ userEmail, userLevel, userHours });
+  for (let field in errors) {
+    let inputElement = document.querySelector(`#${field}`);
+    let labelElement = document.querySelector(`label[for=${field}]`);
+    if (inputElement) {
+      inputElement.classList.add("error-input");
+    }
+    if (labelElement) {
+      labelElement.classList.add("error-label");
+    }
+  }
+
+  console.log({ errors });
 });
 
 // Capture users input on form submission
