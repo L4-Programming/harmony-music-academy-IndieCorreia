@@ -99,7 +99,7 @@ button {
   color: var(--error-placeholder);
 }
 .error-label {
-  color: var(--error-dark);
+  color: var(--brand-dark);
 }
 
 .mobile-show-logo {
