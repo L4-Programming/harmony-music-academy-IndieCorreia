@@ -2,6 +2,7 @@ console.log("Hai! Welcome to the console, happy debugging! :3");
 
 import { validateForm } from "./validateForm.js";
 import { calculateCosts } from "./calculateCosts.js";
+import { displayResults } from "./displayResults.js";
 
 // Capture user's input on form submission
 let form = document.querySelector("form");
@@ -26,7 +27,11 @@ form.addEventListener("submit", function (event) {
   if (result) {
     // Calculate the total cost
     const output = calculateCosts(result);
+
     console.log({ output });
+
+    // Display the total cost to the user
+    displayResults(output);
   }
 });
 

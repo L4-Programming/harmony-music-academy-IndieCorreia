@@ -118,6 +118,19 @@ button {
   display: none;
 }
 
+#results dl {
+  padding: 2rem;
+}
+#results dt {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+#results dd {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
 @media screen and (max-width: 640px) {
   .mobile-hide-logo {
     display: none;
